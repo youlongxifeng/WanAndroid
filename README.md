@@ -3,10 +3,10 @@
 ## 说明
 
 **一个Kotlin版的玩Android App，基于鸿洋大神的[玩Android开放API](http://www.wanandroid.com/blog/show/2)开发，旨在学习 Kotlin，功能逐步完善中…**
+源码出处为
+https://github.com/SheHuan/WanAndroid
+在此基础上做开发。
 
-扫码下载体验：
-
-![](preview/download.png)
 
 ## 效果预览
 |![](preview/home.png)|![](preview/project.png)|![](preview/tree.png)|![](preview/nav.png)|
