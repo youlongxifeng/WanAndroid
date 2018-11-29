@@ -66,6 +66,7 @@ class VerticalTabLayout : LinearLayout {
         private val lineView: View
 
         init {
+            //as强制类型转换 ?安全符
             val tab: LinearLayout = inflate(R.layout.tab_item_nav_layout) as LinearLayout
             nameTv = tab.findViewById(R.id.nameTv)
             nameTv.text = tabName

@@ -1,6 +1,7 @@
 package com.shehuan.wanandroid.ui.project.projectDetail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shehuan.wanandroid.R
@@ -10,6 +11,7 @@ import com.shehuan.wanandroid.base.net.exception.ResponseException
 import com.shehuan.wanandroid.bean.project.DatasItem
 import com.shehuan.wanandroid.bean.project.ProjectBean
 import com.shehuan.wanandroid.ui.article.ArticleActivity
+import com.shehuan.wanandroid.utils.LogUtil
 import com.shehuan.wanandroid.utils.ToastUtil
 import com.shehuan.wanandroid.widget.DividerItemDecoration
 import kotlinx.android.synthetic.main.floating_button_layout.*
@@ -24,12 +26,16 @@ class ProjectDetailFragment : BaseMvpFragment<ProjectDetailPresenterImpl>(), Pro
     private var collectPosition: Int = 0
 
     private var cid: Int = 0
+    private var userid:String=""
+
 
     companion object {
+        //调用某对象的apply函数，在函数块内可以通过 this 指代该对象。返回值为该对象自己。
         fun newInstance(cid: Int) =
                 ProjectDetailFragment().apply {
                     arguments = Bundle().apply {
                         putInt("cid", cid)
+                        putString("userid","zhangsan")
                     }
                 }
     }
@@ -43,9 +49,12 @@ class ProjectDetailFragment : BaseMvpFragment<ProjectDetailPresenterImpl>(), Pro
     }
 
     override fun initData() {
+        //调用某对象的let函数，则该对象为函数的参数。在函数块内可以通过 it 指代该对象。返回值为函数块的最后一行或指定return表达式。
         arguments?.let {
             cid = it.getInt(CID)
+            userid=it.getString("userid")
         }
+      Log.i("TAG","cid=========="+cid+"  userid==="+userid)
     }
 
     override fun initView() {
@@ -79,6 +88,7 @@ class ProjectDetailFragment : BaseMvpFragment<ProjectDetailPresenterImpl>(), Pro
                 }
             }
         }
+
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         projectRv.run {

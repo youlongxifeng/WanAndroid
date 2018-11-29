@@ -88,6 +88,7 @@ class MainActivity : BaseMvpActivity<MainPresenterImpl>(), MainContract.View {
             return@setNavigationItemSelectedListener true
         }
 
+
         // 初始化ViewPager
         val fragments = arrayListOf<BaseFragment>().apply {
             add(HomeFragment.newInstance())
